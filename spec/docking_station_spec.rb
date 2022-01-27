@@ -31,15 +31,11 @@ describe DockingStation do
     end
 
     it { expect(DockingStation.new).to respond_to(:dock).with(1).argument }
-  end
-
-  describe "#bike" do
-    it { expect(DockingStation.new).to respond_to(:bike) }
-
-    it "show instance of bike docked in station" do
+    it "should  return error if docking station contains a bike" do
       bike = Bike.new
       subject.dock(bike)
-      expect(subject.bike).to eq bike
+      bike2 = Bike.new
+      expect { subject.dock(bike2) }.to raise_error("docking station full")
     end
   end
 end 
