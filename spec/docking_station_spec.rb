@@ -23,7 +23,10 @@ describe DockingStation do
   end
 
   describe "#dock" do
-    it { expect(DockingStation.new).to respond_to(:dock) }
+    it { expect(DockingStation.new).to respond_to(:dock).with(1).argument }
   end
 
+  describe "#bike" do
+    it { expect(DockingStation.new).to respond_to(:bike) }
+  end
 end 
