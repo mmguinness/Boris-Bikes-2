@@ -9,26 +9,16 @@ describe DockingStation do
    
     it { expect(DockingStation.new).to respond_to(:release_bike) }    
 
-    it "will release a bike if one exists" do
-        docking_station = DockingStation.new
-        docking_station.dock(Bike)
-        expect(docking_station.release_bike).to be_an_instance_of(Bike)
-    end 
   end
 
   describe "#dock" do
-    it 'docks something' do
+    it 'adds one bike to the docking station' do
       bike = Bike.new
-      expect(subject.dock(bike)).to eq bike
+      expect(subject.dock(bike).count).to eq(1)
     end
 
     it { expect(DockingStation.new).to respond_to(:dock).with(1).argument }
-    it "should return error if docking station contains a bike" do
-      bike = Bike.new
-      subject.dock(bike)
-      bike2 = Bike.new
-      expect { subject.dock(bike2) }.to raise_error("docking station full")
-    end
+
     it "should raise an error if a 21st bike is added" do
       20.times { subject.dock Bike.new }
       bike = Bike.new
