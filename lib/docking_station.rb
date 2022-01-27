@@ -1,22 +1,14 @@
 require_relative "./bike.rb"
 
 class DockingStation 
-    
-    attr_reader :bikes
+    attr_reader :bike
 
-    def initialize
-        @bikes = []
-    end    
-    
     def release_bike
-        raise "no bikes available" if @bikes == nil
-        Bike.new
+      @bike == nil ? (fail "No bikes available") : Bike.new
     end
 
     def dock(bike)
-        @bikes << bike
+      @bike = bike
     end
 
-    def bike
-    end
 end 
