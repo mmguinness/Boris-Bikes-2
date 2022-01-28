@@ -20,7 +20,7 @@ describe DockingStation do
     it { expect(DockingStation.new).to respond_to(:dock).with(1).argument }
 
     it "should raise an error if a 21st bike is added" do
-      20.times { subject.dock Bike.new }
+      DockingStation::DEFAULT_CAPACITY.times { subject.dock Bike.new }
       bike = Bike.new
       expect { subject.dock(bike) }.to raise_error("docking station full")
     end
