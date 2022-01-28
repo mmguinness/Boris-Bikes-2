@@ -7,13 +7,11 @@ class DockingStation
 
     def release_bike
       fail "No bikes available" if empty? 
-
       @bikes.pop
     end
 
     def dock(bike)
       fail "docking station full" if full?
-
       @bikes << bike
     end
 
@@ -26,5 +24,4 @@ class DockingStation
   def empty?
     @bikes.empty?
   end
-
 end 
