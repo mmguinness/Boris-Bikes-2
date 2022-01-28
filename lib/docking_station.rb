@@ -1,5 +1,4 @@
 require_relative "./bike.rb"
-
 class DockingStation 
     def initialize
         @bikes = []
@@ -16,7 +15,6 @@ class DockingStation
     end
 
   private
-
   def full?
     @bikes.count >= 20
   end
@@ -25,3 +23,5 @@ class DockingStation
     @bikes.empty?
   end
 end 
+
+# test file
